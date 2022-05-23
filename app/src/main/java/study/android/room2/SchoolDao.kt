@@ -40,4 +40,10 @@ interface SchoolDao {
     @Transaction
     @Query("SELECT * FROM student WHERE studentName = :studentName")
     suspend fun getSubjectsOfStudent(studentName: String): List<StudentWithSubjects>
+
+    @Query("SELECT DISTINCT * FROM student")
+    fun getStudents(): List<Student>
+
+    @Query("SELECT DISTINCT * FROM subject")
+    fun getSubjects(): List<Subject>
 }
